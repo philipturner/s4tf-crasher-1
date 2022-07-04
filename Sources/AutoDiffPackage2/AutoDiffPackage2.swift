@@ -1,36 +1,12 @@
 import _Differentiation
 
-extension Array: Differentiable where Element: Differentiable {
-  public mutating func move(by offset: TangentVector) {
-    fatalError()
-  }
-}
+extension Array: Differentiable {}
 
-struct Tensor: Differentiable & AdditiveArithmetic {
-  typealias TangentVector = Self
-  
-  static func == (lhs: Self, rhs: Self) {
-    fatalError()
-  }
-  
-  static func + (lhs: Self, rhs: Self) {
-    fatalError()
-  }
-}
+// rm -rf .build
+// mkdir .build
+// export MY_DIR=$(pwd)
+// /Library/Developer/Toolchains/swift-5.7-DEVELOPMENT-SNAPSHOT-2022-06-26-a.xctoolchain/usr/bin/swift-frontend -frontend -emit-module ${MY_DIR}/Sources/_Differentiation/Differentiable.swift -o ${MY_DIR}/.build/_Differentiation.swiftmodule
+// /Library/Developer/Toolchains/swift-5.7-DEVELOPMENT-SNAPSHOT-2022-06-26-a.xctoolchain/usr/bin/swift-frontend -frontend -emit-module ${MY_DIR}/Sources/AutoDiffPackage2/AutoDiffPackage2.swift -I ${MY_DIR}/.build
 
-@differentiable(reverse)
-func Tensor_stack(_ lhs: Tensor) -> Tensor {
-  Tensor_init(stacking: [lhs])
-}
 
-@differentiable(reverse)
-func Tensor_init(stacking tensors: Array<Tensor>) -> Tensor {
-  fatalError()
-}
 
-@derivative(of: Tensor_init(stacking:))
-func _vjpStacking(
-  stacking tensors: Array<Tensor>
-) -> (value: Tensor, pullback: (Tensor) -> Array<Tensor>.TangentVector) {
-  fatalError()
-}

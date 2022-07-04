@@ -14,21 +14,13 @@ let package = Package(
         
     ],
     targets: [
-//      .target(
-//        name: "_Differentiation",
-//        dependencies: []),
-//      .target(
-//        name: "Differentiation",
-//        dependencies: ["_Differentiation"],
-//        swiftSettings: [.unsafeFlags(["-parse-stdlib"])]
-//      ),
+        .target(
+            name: "_Differentiation",
+            dependencies: []),
         .target(
             name: "AutoDiffPackage2",
             dependencies: [
-//                "_Differentiation"
+                "_Differentiation"
             ]),
-        .testTarget(
-            name: "AutoDiffPackage2Tests",
-            dependencies: ["AutoDiffPackage2"]),
     ]
 )
