@@ -8,10 +8,13 @@ let package = Package(
     products: [],
     dependencies: [],
     targets: [
-      .target(
-        name: "Differentiation"),
+        .target(
+            name: "_Differentiation"),
+        .target(
+            name: "AutoDiffPackage2",
+            dependencies: ["_Differentiation"]),
         .testTarget(
             name: "AutoDiffPackage2Tests",
-            dependencies: ["Differentiation"]),
+            dependencies: ["AutoDiffPackage2"]),
     ]
 )
