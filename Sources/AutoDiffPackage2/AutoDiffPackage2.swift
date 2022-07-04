@@ -1,24 +1,9 @@
-import Differentiation
+import _Differentiation
 
-extension Array.DifferentiableView: RandomAccessCollection
-where Element: Differentiable {
-  // All of these properties must be public.
-  public typealias Element = Array<Element>.Element
-  public typealias Index = Array<Element>.Index
-  public typealias SubSequence = Array<Element>.SubSequence
-
-  public subscript(position: Array<Element>.Index) -> Element {
-    get { fatalError() }
-    set { fatalError() }
+extension Array: Differentiable where Element: Differentiable {
+  public mutating func move(by offset: TangentVector) {
+    fatalError()
   }
-
-  public subscript(bounds: Range<Array<Element>.Index>) -> SubSequence {
-    get { fatalError() }
-    set { fatalError() }
-  }
-
-  public var startIndex: Index { fatalError() }
-  public var endIndex: Index { fatalError() }
 }
 
 struct Tensor: Differentiable & AdditiveArithmetic {
@@ -39,13 +24,13 @@ func Tensor_stack(_ lhs: Tensor) -> Tensor {
 }
 
 @differentiable(reverse)
-func Tensor_init(stacking tensors: [Tensor]) -> Tensor {
+func Tensor_init(stacking tensors: Array<Tensor>) -> Tensor {
   fatalError()
 }
 
 @derivative(of: Tensor_init(stacking:))
 func _vjpStacking(
-  stacking tensors: [Tensor]
+  stacking tensors: Array<Tensor>
 ) -> (value: Tensor, pullback: (Tensor) -> Array<Tensor>.TangentVector) {
   fatalError()
 }

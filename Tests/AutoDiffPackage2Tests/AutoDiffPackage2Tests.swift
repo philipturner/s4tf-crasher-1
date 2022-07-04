@@ -6,6 +6,7 @@ final class AutoDiffPackage2Tests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
         // results.
-        XCTAssertEqual(AutoDiffPackage2().text, "Hello, World!")
+//        XCTAssertEqual(AutoDiffPackage2().text, "Hello, World!")
+//      _ = [Tensor(), Tensor()]
     }
 }

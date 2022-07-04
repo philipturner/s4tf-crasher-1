@@ -6,23 +6,26 @@ import PackageDescription
 let package = Package(
     name: "AutoDiffPackage2",
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "AutoDiffPackage2",
             targets: ["AutoDiffPackage2"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-      .package(url: "https://github.com/philipturner/differentiation", .branch("main")),
+        
     ],
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
+//      .target(
+//        name: "_Differentiation",
+//        dependencies: []),
+//      .target(
+//        name: "Differentiation",
+//        dependencies: ["_Differentiation"],
+//        swiftSettings: [.unsafeFlags(["-parse-stdlib"])]
+//      ),
         .target(
             name: "AutoDiffPackage2",
             dependencies: [
-                .product(name: "_Differentiation", package: "differentiation"),
+//                "_Differentiation"
             ]),
         .testTarget(
             name: "AutoDiffPackage2Tests",
