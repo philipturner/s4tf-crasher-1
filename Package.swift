@@ -22,7 +22,8 @@ let package = Package(
         .target(
             name: "AutoDiffPackage2",
             dependencies: [
-                .product(name: "_Differentiation", package: "differentiation"),
+                "_Differentiation"
+//                 .product(name: "_Differentiation", package: "differentiation"),
             ]),
         .testTarget(
             name: "AutoDiffPackage2Tests",
